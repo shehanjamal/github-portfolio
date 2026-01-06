@@ -489,13 +489,26 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .work__image-box {
+    display: flex;
+    gap: 2rem;           /* Adds space between the two images */
+    align-items: flex-start;
+    justify-content: center;
     margin-bottom: var(--gutter-normal);
 }
 
-@media(min-width: 901px) {
+.work__image-box .work__image {
+    flex: 1;            /* Makes both images take up equal width */
+    max-width: 48%;     /* Ensures they don't grow too large */
+    height: auto;       /* Maintains aspect ratio */
+    object-fit: cover;  
+}
+
+@media(max-width: 600px) {
     .work__image-box {
-        flex: 1;
-        margin: 0 0 0 10rem;
+        flex-direction: column;
+    }
+    .work__image-box .work__image {
+        max-width: 100%;
     }
 }
 
@@ -550,6 +563,10 @@ body:not(.user-is-tabbing) a:focus {
 
 .about__photo-container {
     margin-bottom: var(--gutter-normal);
+}
+.about__photo{
+    height: 400px;
+    margin-left: 100px;
 }
 
 @media(min-width: 901px) {
